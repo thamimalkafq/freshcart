@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers - eGrocery Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic styles for the offers page */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(90deg, #8B4513 0%, #D2B48C 100%);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .offers-header {
+            background-color: red ;
+            color: rgb(255, 255, 255);
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured-offers, .current-deals, .cta {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured-offers img, .current-deals img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .offer-item {
+            margin: 20px 0;
+        }
+
+        .offer-item h2 {
+            margin: 10px 0 5px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .offer-item p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .cta {
+            text-align: center;
+            background: red;
+            color: white;
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta a:hover {
+            background-color: rgb(95, 92, 92);
+        }
+
+        /* Navigation styles */
+        .navigation {
+            background: linear-gradient(90deg, #8B4513 0%, #D2B48C 100%);
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .navigation .logo {
+            float: left;
+            display: block;
+            padding: 14px 20px;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .navigation .menu-btn {
+            display: none;
+        }
+
+        .navigation .menu-icon {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 14px 20px;
+            cursor: pointer;
+        }
+
+        .navigation .menu-icon .nav-icon {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: black;
+            margin: 5px 0;
+        }
+
+        .navigation .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            float: right;
+        }
+
+        .navigation .menu li {
+            float: left;
+        }
+
+        .navigation .menu li a {
+            display: block;
+            padding: 14px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .navigation .menu li a:hover, .navigation .menu li a.active {
+            background-color: #575757;
+        }
+
+        .navigation .right-nav {
+            float: right;
+        }
+
+        .navigation .right-nav a {
+            display: block;
+            padding: 14px 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .navigation .right-nav a .fas, .navigation .right-nav a .far {
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .navigation .menu, .navigation .right-nav {
+                display: none;
+                float: none;
+                width: 100%;
+                text-align: center;
+            }
+
+            .navigation .menu-icon {
+                display: block;
+            }
+
+            .navigation .menu li {
+                float: none;
+            }
+
+            .navigation .menu li a {
+                padding: 14px 0;
+                display: block;
+            }
+
+            .navigation .menu-btn:checked + .menu-icon + .menu,
+            .navigation .menu-btn:checked + .menu-icon + .right-nav {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navigation">
+        <!--logo-->
+        <header id="header">
+            <a href="index.html" class="logo"><span>e</span>Grocery</a>
+        </header>
+        <!--menu-btn-->
+        <input type="checkbox" class="menu-btn" id="menu-btn" />
+        <label for="menu-btn" class="menu-icon">
+            <span class="nav-icon"></span>
+            <span class="nav-icon"></span>
+            <span class="nav-icon"></span>
+        </label>
+        <!--menu-->
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#category">Categories</a></li>
+            <li><a href="index.html#popular-bundle-pack">Our Packages</a></li>
+            <li><a href="index.html#download-app">Our App</a></li>
+            <li><a href="offers.html">Offers</a></li>
+            <li><a href="#" id="loginBtn">Login</a></li>
+        </ul>
+        <!--right-nav-(cart-like)-->
+        <div class="right-nav">
+            <!--like-->
+            <a href="#" class="like">
+                <i class="far fa-heart"></i>
+                <span></span>
+            </a>
+            <!--cart-->
+            <a href="#" class="cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count"></span>
+            </a>
+        </div>
+    </nav>
+
+    <header class="offers-header">
+        <h1>Special Offers</h1>
+    </header>
+
+    <div class="container">
+        <section class="featured-offers">
+            <h1><b>Featured Offers</b></h1>
+            <div class="offer-item">
+                <img src="images/offer1.jpg" alt="Featured Offer 1">
+                <h2>50% Off on Organic Vegetables</h2>
+                <p>Fresh and healthy organic vegetables at half the price. Limited time offer!</p>
+            </div>
+            
+        </section>
+
+        <section class="current-deals">
+            <h2>Current Deals</h2>
+            <div class="offer-item">
+                <img src="images/offer3.jpg" alt="Deal 1">
+                <h2>20% Off on All Dairy Products</h2>
+                <p>Enjoy a 20% discount on all dairy products. Don't miss out on this great deal!</p>
+            </div>
+            <div class="offer-item">
+                <img src="images/offer4.jpg" alt="Deal 2">
+                <h2>Free Delivery on Orders</h2>
+                <p>Get free delivery on all orders. Shop now and save on delivery costs!</p>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Don't Miss Out!</h2>
+            <p>These offers are available for a limited time only. Check out our store and save big on your next purchase.</p>
+            <a href="index.html#popular-product" class="btn btn-primary">Shop Now</a>
+        </section>
+    </div>
+</body>
+</html>
